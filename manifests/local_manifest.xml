@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+    <!-- Remove CM repository -->
+    <remove-project name="CyanogenMod/android_hardware_ril" />
+	<remove-project name="CyanogenMod/android_build" />
+	<remove-project name="CyanogenMod/android_frameworks_base" />
+	<project name="wiko-repo/android_hardware_ril" path="hardware/ril" revision="ics"/>
+	<project name="wiko-repo/android_build" path="build" revision="ics"/>
+	<project name="wiko-repo/android_frameworks_base" patch="frameworks/base" revision="ics"/>
+</manifest>
+

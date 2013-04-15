@@ -5,4 +5,5 @@ Create common repository for the wiko devices.
 
 use local manifest
 
-	wget https://github.com/wiko-repo/android_device_wiko_common/raw/ics/manifests/local_manifest.xml -C .repo/local_manifests/
+	mkdir -p .repo/local_manifests
+	wget https://github.com/wiko-repo/android_device_wiko_common/raw/ics/manifests/local_manifest.xml -O .repo/local_manifests/local_manifest.xml

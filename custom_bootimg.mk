@@ -1,6 +1,6 @@
 TARGET_RECOVERY_COMPRESSED_GZIP := $(PRODUCT_OUT)/mtk_recovery.cpio.gz
 TARGET_RAMDISK_COMPRESSED_GZIP := $(PRODUCT_OUT)/mtk_ramdisk.cpio.gz
-recovery_kernel_mtk := $(recovery_kernel)_mtk
+recovery_kernel_mtk := $(strip $(recovery_kernel))_mtk
 INSTALLED_KERNEL_TARGET_MTK := $(INSTALLED_KERNEL_TARGET)_MTK
 
 $(INSTALLED_RECOVERYIMAGE_TARGET): $(MKBOOTIMG) \

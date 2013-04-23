@@ -1,7 +1,9 @@
 TARGET_RECOVERY_COMPRESSED_GZIP := $(PRODUCT_OUT)/mtk_recovery.cpio.gz
 TARGET_RAMDISK_COMPRESSED_GZIP := $(PRODUCT_OUT)/mtk_ramdisk.cpio.gz
-recovery_kernel_mtk := $(recovery_kernel)_mtk
-INSTALLED_KERNEL_TARGET_MTK := $(INSTALLED_KERNEL_TARGET)_MTK
+#recovery_kernel_mtk := $(recovery_kernel)_mtk
+recovery_kernel_mtk := $(PRODUCT_OUT)/kernel_MTK
+#INSTALLED_KERNEL_TARGET_MTK := $(INSTALLED_KERNEL_TARGET)_MTK
+INSTALLED_KERNEL_TARGET_MTK := $(PRODUCT_OUT)/kernel_MTK
 
 $(INSTALLED_RECOVERYIMAGE_TARGET): $(MKBOOTIMG) \
 		$(recovery_ramdisk) \
@@ -14,7 +16,7 @@ $(INSTALLED_RECOVERYIMAGE_TARGET): $(MKBOOTIMG) \
 	$(COMMON_FOLDER)/tools/mtk_pack --recovery $(recovery_ramdisk) $(PRODUCT_OUT) -o $(TARGET_RECOVERY_COMPRESSED_GZIP)
 	dd if=$(TARGET_KERNEL_MTK_HEADER) of=$(recovery_kernel_mtk) count=1
 	dd if=$(recovery_kernel) of=$(recovery_kernel_mtk) seek=1
-	$(COMMON_FOLDER)/tools/mkbootimg --kernel $(recovery_kernel_mtk) --ramdisk $(TARGET_RECOVERY_COMPRESSED_GZIP) --pagesize $(BOARD_KERNEL_PAGESIZE)  --output $@
+	$(COMMON_FOLDER)/tools/mkbootimg --kernel $(recovery_kernel_mtk) --ramdisk $(TARGET_RAMDISK_COMPRESSED_GZIP) --pagesize $(BOARD_KERNEL_PAGESIZE)  --output $@
 	@echo -e ${CL_INS}"Made recovery image: $@"${CL_RST}
 	$(hide) $(call assert-max-image-size,$@,$(BOARD_RECOVERYIMAGE_PARTITION_SIZE),raw)
 

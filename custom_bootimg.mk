@@ -11,7 +11,7 @@ $(INSTALLED_RECOVERYIMAGE_TARGET): $(MKBOOTIMG) \
 	cp $(PRODUCT_OUT)/$(KERNEL_MODULES_INSTALL)/lib/modules/sec.ko $(TARGET_RECOVERY_ROOT_OUT)
 	$(MKBOOTFS) $(TARGET_RECOVERY_ROOT_OUT) > $(recovery_uncompressed_ramdisk)
 	$(MINIGZIP) < $(recovery_uncompressed_ramdisk) > $(recovery_ramdisk)
-	$(COMMON_FOLDER)/tools/mtk_pack --recovery $(recovery_ramdisk) $(PRODUCT_OUT) -o $(TARGET_RECOVERY_COMPRESSED_GZIP)
+	$(COMMON_FOLDER)/tools/mtk_pack --recovery $(recovery_ramdisk) -o $(TARGET_RECOVERY_COMPRESSED_GZIP)
 	dd if=$(TARGET_KERNEL_MTK_HEADER) of=$(recovery_kernel_mtk) count=1
 	dd if=$(recovery_kernel) of=$(recovery_kernel_mtk) seek=1
 	$(COMMON_FOLDER)/tools/mkbootimg --kernel $(recovery_kernel_mtk) --ramdisk $(TARGET_RECOVERY_COMPRESSED_GZIP) --pagesize $(BOARD_KERNEL_PAGESIZE)  --output $@

@@ -8,7 +8,7 @@
 	<project name="wiko-repo/android_hardware_ril" path="hardware/ril" revision="ics"/>
 	<project name="wiko-repo/android_build" path="build" revision="ics"/>
 	<project name="wiko-repo/android_frameworks_base" path="frameworks/base" revision="ics"/>
-	<project name="wiko-repo/android_system_core" patch="system/core" revision="ics"/>
+	<project name="wiko-repo/android_system_core" path="system/core" revision="ics"/>
 
 	<project name="wiko-repo/android_device_wiko_common" path="device/wiko/common" revision="ics"/>
 </manifest>
